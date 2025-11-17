@@ -11,7 +11,7 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
+
             <!-- Left Content -->
             <div class="text-white">
                 <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
@@ -35,34 +35,34 @@
             <!-- Right Content - Featured Image Grid -->
             <div class="grid grid-cols-2 gap-4">
                 @if($featuredPhotos->count() >= 4)
-                    <div class="space-y-4">
-                        <div class="h-48 rounded-2xl glass card-hover overflow-hidden">
-                            <img src="{{ $featuredPhotos[0]->path }}" alt="{{ $featuredPhotos[0]->alt_text }}" class="w-full h-full object-cover">
-                        </div>
-                        <div class="h-64 rounded-2xl glass card-hover overflow-hidden">
-                            <img src="{{ $featuredPhotos[1]->path }}" alt="{{ $featuredPhotos[1]->alt_text }}" class="w-full h-full object-cover">
-                        </div>
+                <div class="space-y-4">
+                    <div class="h-48 rounded-2xl glass card-hover overflow-hidden">
+                        <img src="{{ $featuredPhotos[0]->path }}" alt="{{ $featuredPhotos[0]->alt_text }}" class="w-full h-full object-cover">
                     </div>
-                    <div class="space-y-4 mt-8">
-                        <div class="h-64 rounded-2xl glass card-hover overflow-hidden">
-                            <img src="{{ $featuredPhotos[2]->path }}" alt="{{ $featuredPhotos[2]->alt_text }}" class="w-full h-full object-cover">
-                        </div>
-                        <div class="h-48 rounded-2xl glass card-hover overflow-hidden">
-                            <img src="{{ $featuredPhotos[3]->path }}" alt="{{ $featuredPhotos[3]->alt_text }}" class="w-full h-full object-cover">
-                        </div>
+                    <div class="h-64 rounded-2xl glass card-hover overflow-hidden">
+                        <img src="{{ $featuredPhotos[1]->path }}" alt="{{ $featuredPhotos[1]->alt_text }}" class="w-full h-full object-cover">
                     </div>
+                </div>
+                <div class="space-y-4 mt-8">
+                    <div class="h-64 rounded-2xl glass card-hover overflow-hidden">
+                        <img src="{{ $featuredPhotos[2]->path }}" alt="{{ $featuredPhotos[2]->alt_text }}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-48 rounded-2xl glass card-hover overflow-hidden">
+                        <img src="{{ $featuredPhotos[3]->path }}" alt="{{ $featuredPhotos[3]->alt_text }}" class="w-full h-full object-cover">
+                    </div>
+                </div>
                 @else
-                    <!-- Fallback jika foto unggulan kurang dari 4 -->
-                    <div class="space-y-4">
-                        <div class="h-48 rounded-2xl glass card-hover flex items-center justify-center" style="background: linear-gradient(135deg, #FFC857 0%, #FFB627 100%);">
-                            <p class="text-white font-bold">Upload Foto Unggulan</p>
-                        </div>
-                        <div class="h-64 rounded-2xl glass card-hover" style="background: linear-gradient(135deg, #00C2A8 0%, #009688 100%);"></div>
+                <!-- Fallback jika foto unggulan kurang dari 4 -->
+                <div class="space-y-4">
+                    <div class="h-48 rounded-2xl glass card-hover flex items-center justify-center" style="background: linear-gradient(135deg, #FFC857 0%, #FFB627 100%);">
+                        <p class="text-white font-bold">Upload Foto Unggulan</p>
                     </div>
-                    <div class="space-y-4 mt-8">
-                        <div class="h-64 rounded-2xl glass card-hover" style="background: linear-gradient(135deg, #6155F5 0%, #4942c7 100%);"></div>
-                        <div class="h-48 rounded-2xl glass card-hover" style="background: linear-gradient(135deg, #6155F5 0%, #00C2A8 100%);"></div>
-                    </div>
+                    <div class="h-64 rounded-2xl glass card-hover" style="background: linear-gradient(135deg, #00C2A8 0%, #009688 100%);"></div>
+                </div>
+                <div class="space-y-4 mt-8">
+                    <div class="h-64 rounded-2xl glass card-hover" style="background: linear-gradient(135deg, #6155F5 0%, #4942c7 100%);"></div>
+                    <div class="h-48 rounded-2xl glass card-hover" style="background: linear-gradient(135deg, #6155F5 0%, #00C2A8 100%);"></div>
+                </div>
                 @endif
             </div>
         </div>
@@ -78,14 +78,14 @@
 
 <!-- Sejarah Sekolah Section -->
 @php
-    $sejarahSekolah = \App\Models\Informasi::published()->byTipe('sejarah')->ordered()->first();
+$sejarahSekolah = \App\Models\Informasi::published()->byTipe('sejarah')->ordered()->first();
 @endphp
 
 @if($sejarahSekolah)
 <section class="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
+
             <!-- Sejarah Sekolah - Kiri (2/3) -->
             <div class="lg:col-span-2">
                 <div class="bg-white rounded-3xl shadow-2xl overflow-hidden h-full">
@@ -107,13 +107,13 @@
                         <!-- Gambar -->
                         <div class="mb-6">
                             <div class="rounded-2xl overflow-hidden shadow-xl">
-                                <img src="{{ $sejarahSekolah->gambar }}" 
-                                     alt="{{ $sejarahSekolah->judul }}" 
-                                     class="w-full h-64 object-cover">
+                                <img src="{{ $sejarahSekolah->gambar }}"
+                                    alt="{{ $sejarahSekolah->judul }}"
+                                    class="w-full h-64 object-cover">
                             </div>
                         </div>
                         @endif
-                        
+
                         <!-- Konten -->
                         <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed text-justify">
                             {!! nl2br(e($sejarahSekolah->konten)) !!}
@@ -178,15 +178,15 @@
 
 <!-- Visi Misi Section -->
 @php
-    $visi = \App\Models\Informasi::published()->byTipe('visi')->ordered()->first();
-    $misi = \App\Models\Informasi::published()->byTipe('misi')->ordered()->first();
+$visi = \App\Models\Informasi::published()->byTipe('visi')->ordered()->first();
+$misi = \App\Models\Informasi::published()->byTipe('misi')->ordered()->first();
 @endphp
 
 @if($visi || $misi)
 <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            
+
             <!-- Visi -->
             @if($visi)
             <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl shadow-xl overflow-hidden card-hover">
@@ -205,9 +205,9 @@
                     @if($visi->gambar)
                     <div class="mb-6">
                         <div class="rounded-2xl overflow-hidden shadow-lg">
-                            <img src="{{ $visi->gambar }}" 
-                                 alt="{{ $visi->judul }}" 
-                                 class="w-full h-48 object-cover">
+                            <img src="{{ $visi->gambar }}"
+                                alt="{{ $visi->judul }}"
+                                class="w-full h-48 object-cover">
                         </div>
                     </div>
                     @endif
@@ -235,9 +235,9 @@
                     @if($misi->gambar)
                     <div class="mb-6">
                         <div class="rounded-2xl overflow-hidden shadow-lg">
-                            <img src="{{ $misi->gambar }}" 
-                                 alt="{{ $misi->judul }}" 
-                                 class="w-full h-48 object-cover">
+                            <img src="{{ $misi->gambar }}"
+                                alt="{{ $misi->judul }}"
+                                class="w-full h-48 object-cover">
                         </div>
                     </div>
                     @endif
@@ -255,7 +255,7 @@
 
 <!-- Jurusan Section -->
 @php
-    $jurusan = \App\Models\Informasi::published()->byTipe('jurusan')->ordered()->get();
+$jurusan = \App\Models\Informasi::published()->byTipe('jurusan')->ordered()->get();
 @endphp
 
 @if($jurusan->count() > 0)
@@ -272,34 +272,34 @@
             <h2 class="text-4xl font-bold text-gray-900 mb-4">🎓 Program Keahlian</h2>
             <div class="w-24 h-1 bg-gradient-to-r from-purple-600 to-purple-400 mx-auto"></div>
         </div>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             @foreach($jurusan as $index => $item)
-                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl shadow-lg card-hover border-t-4 border-purple-600 cursor-pointer transform transition-transform hover:scale-105 p-6" onclick="openJurusanModalHome({{ $index }})">
-                    <div class="flex flex-col items-center text-center">
-                        @if($item->gambar)
-                            <div class="w-40 h-40 mb-4 rounded-full overflow-hidden shadow-lg border-4 border-white bg-white">
-                                <img src="{{ $item->gambar }}" alt="{{ $item->judul }}" class="w-full h-full object-contain">
-                            </div>
-                        @else
-                            <div class="w-40 h-40 mb-4 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center shadow-lg border-4 border-white">
-                                <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
-                                </svg>
-                            </div>
-                        @endif
-                        
-                        <h3 class="text-lg font-bold text-gray-900 mb-2">{{ $item->judul }}</h3>
-                        <p class="text-gray-700 text-sm leading-relaxed mb-3">{{ Str::limit($item->konten, 100) }}</p>
-                        <div class="text-purple-600 text-sm font-semibold flex items-center">
-                            <span>Lihat Detail</span>
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </div>
+            <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl shadow-lg card-hover border-t-4 border-purple-600 cursor-pointer transform transition-transform hover:scale-105 p-6" onclick="openJurusanModalHome({{ $index }})">
+                <div class="flex flex-col items-center text-center">
+                    @if($item->gambar)
+                    <div class="w-40 h-40 mb-4 rounded-full overflow-hidden shadow-lg border-4 border-white bg-white">
+                        <img src="{{ $item->gambar }}" alt="{{ $item->judul }}" class="w-full h-full object-contain">
+                    </div>
+                    @else
+                    <div class="w-40 h-40 mb-4 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center shadow-lg border-4 border-white">
+                        <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                        </svg>
+                    </div>
+                    @endif
+
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">{{ $item->judul }}</h3>
+                    <p class="text-gray-700 text-sm leading-relaxed mb-3">{{ Str::limit($item->konten, 100) }}</p>
+                    <div class="text-purple-600 text-sm font-semibold flex items-center">
+                        <span>Lihat Detail</span>
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
                     </div>
                 </div>
+            </div>
             @endforeach
         </div>
     </div>
@@ -326,39 +326,38 @@
 </div>
 
 <script>
-const jurusanDataHome = [
-    @foreach($jurusan as $item)
-    {
-        judul: @json($item->judul),
-        konten: @json($item->konten),
-        gambar: @json($item->gambar ? $item->gambar : null)
-    },
-    @endforeach
-];
+    const jurusanDataHome = [
+        @foreach($jurusan as $item) {
+            judul: @json($item - > judul),
+            konten: @json($item - > konten),
+            gambar: @json($item - > gambar ? $item - > gambar : null)
+        },
+        @endforeach
+    ];
 
-function openJurusanModalHome(index) {
-    const data = jurusanDataHome[index];
-    document.getElementById('modalTitleHome').textContent = data.judul;
-    document.getElementById('modalContentHome').textContent = data.konten;
-    
-    const modalImage = document.getElementById('modalImageHome');
-    if (data.gambar) {
-        modalImage.innerHTML = `<img src="${data.gambar}" alt="${data.judul}" class="w-full h-full object-cover rounded-2xl shadow-lg">`;
-    } else {
-        modalImage.innerHTML = '';
-        modalImage.classList.add('hidden');
-        document.getElementById('modalContentHome').classList.remove('lg:col-span-1');
-        document.getElementById('modalContentHome').classList.add('lg:col-span-2');
+    function openJurusanModalHome(index) {
+        const data = jurusanDataHome[index];
+        document.getElementById('modalTitleHome').textContent = data.judul;
+        document.getElementById('modalContentHome').textContent = data.konten;
+
+        const modalImage = document.getElementById('modalImageHome');
+        if (data.gambar) {
+            modalImage.innerHTML = `<img src="${data.gambar}" alt="${data.judul}" class="w-full h-full object-cover rounded-2xl shadow-lg">`;
+        } else {
+            modalImage.innerHTML = '';
+            modalImage.classList.add('hidden');
+            document.getElementById('modalContentHome').classList.remove('lg:col-span-1');
+            document.getElementById('modalContentHome').classList.add('lg:col-span-2');
+        }
+
+        document.getElementById('jurusanModalHome').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
     }
-    
-    document.getElementById('jurusanModalHome').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-}
 
-function closeJurusanModalHome() {
-    document.getElementById('jurusanModalHome').classList.add('hidden');
-    document.body.style.overflow = 'auto';
-}
+    function closeJurusanModalHome() {
+        document.getElementById('jurusanModalHome').classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
 </script>
 @endif
 
@@ -394,7 +393,7 @@ function closeJurusanModalHome() {
         let current = 0;
         const increment = target / 50;
         const element = document.getElementById(id);
-        
+
         const timer = setInterval(() => {
             current += increment;
             if (current >= target) {
@@ -411,9 +410,9 @@ function closeJurusanModalHome() {
         try {
             const response = await fetch('api/gallery/featured');
             const data = await response.json();
-            
+
             const container = document.getElementById('featured-photos');
-            
+
             if (data.success && data.data.length > 0) {
                 container.innerHTML = data.data.map(foto => `
                     <div class="card-hover rounded-2xl overflow-hidden shadow-lg bg-white">
@@ -431,7 +430,7 @@ function closeJurusanModalHome() {
                         </div>
                     </div>
                 `).join('');
-                
+
                 animateCounter('foto-count', data.data.length);
             } else {
                 container.innerHTML = `
