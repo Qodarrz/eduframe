@@ -150,7 +150,7 @@
         `;
 
         try {
-            let url = `/api/gallery?page=${currentPage}&per_page=12`;
+            let url = `public/api/gallery?page=${currentPage}&per_page=12`;
             if (currentKategori) url += `&kategori=${currentKategori}`;
             if (currentSearch) url += `&search=${currentSearch}`;
 
@@ -246,7 +246,7 @@
     // Open modal
     async function openModal(id) {
         try {
-            const response = await fetch(`/api/gallery/${id}`);
+            const response = await fetch(`public/api/gallery/${id}`);
             const data = await response.json();
             
             if (data.success) {
