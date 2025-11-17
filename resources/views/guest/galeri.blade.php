@@ -110,7 +110,7 @@
     // Load categories for filter
     async function loadCategoryFilters() {
         try {
-            const response = await fetch('/api/gallery/categories');
+            const response = await fetch('public/api/gallery/categories');
             const data = await response.json();
             
             if (data.success && data.data.length > 0) {

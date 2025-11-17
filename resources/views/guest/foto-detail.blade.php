@@ -21,7 +21,7 @@
                 
                 <!-- Left: Image -->
                 <div class="relative h-96 lg:h-auto bg-gray-800">
-                    <img src="{{ asset('storage/uploads/' . $foto->path) }}" 
+                    <img src="{{ $foto->path }}" 
                          alt="{{ $foto->alt_text }}" 
                          class="w-full h-full object-cover">
                     
