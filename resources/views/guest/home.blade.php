@@ -409,7 +409,7 @@ function closeJurusanModalHome() {
     // Fetch featured photos
     async function loadFeaturedPhotos() {
         try {
-            const response = await fetch('/gallery/featured');
+            const response = await fetch('/api/gallery/featured');
             const data = await response.json();
             
             const container = document.getElementById('featured-photos');
