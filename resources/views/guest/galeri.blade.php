@@ -161,7 +161,7 @@
                 container.innerHTML = data.data.map(foto => `
                     <a href="/galeri/${foto.id}" class="card-hover rounded-2xl overflow-hidden shadow-lg bg-white block">
                         <div class="h-64 bg-gradient-to-br from-gray-200 to-gray-300 relative">
-                            <img src="${foto.url}" alt="${foto.alt_text}" class="w-full h-full object-cover">
+                            <img src="${foto.path}" alt="${foto.alt_text}" class="w-full h-full object-cover">
                             ${foto.kategori ? `
                                 <span class="absolute top-3 left-3 px-3 py-1 bg-purple-600 text-white rounded-full text-xs font-semibold">
                                     ${foto.kategori.icon || '📸'} ${foto.kategori.nama}

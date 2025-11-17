@@ -418,7 +418,7 @@ function closeJurusanModalHome() {
                 container.innerHTML = data.data.map(foto => `
                     <div class="card-hover rounded-2xl overflow-hidden shadow-lg bg-white">
                         <div class="h-64 bg-gradient-to-br from-gray-200 to-gray-300 relative">
-                            <img src="${foto.url}" alt="${foto.alt_text}" class="w-full h-full object-cover">
+                            <img src="${foto.path}" alt="${foto.alt_text}" class="w-full h-full object-cover">
                             ${foto.kategori ? `
                                 <span class="absolute top-4 left-4 px-3 py-1 bg-yellow-500 text-gray-900 rounded-full text-sm font-semibold">
                                     ${foto.kategori.icon || '📸'} ${foto.kategori.nama}
