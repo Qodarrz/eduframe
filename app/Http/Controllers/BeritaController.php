@@ -25,19 +25,19 @@ class BeritaController extends Controller
     public function index(Request $request)
     {
         $query = Berita::query();
-        
+
         if ($request->has('search') && !empty($request->search)) {
             $searchTerm = $request->search;
-            $query->where(function($q) use ($searchTerm) {
+            $query->where(function ($q) use ($searchTerm) {
                 $q->where('judul', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('konten', 'like', '%' . $searchTerm . '%');
+                    ->orWhere('konten', 'like', '%' . $searchTerm . '%');
             });
         }
-        
+
         if ($request->has('kategori') && !empty($request->kategori)) {
             $query->where('kategori', $request->kategori);
         }
-        
+
         $beritas = $query->orderByRaw("
             CASE 
                 WHEN kategori = 'kehilangan' THEN 1
@@ -46,7 +46,7 @@ class BeritaController extends Controller
                 ELSE 4
             END
         ")->latest()->paginate(10);
-        
+
         return view('berita.index', compact('beritas'));
     }
 
@@ -61,8 +61,9 @@ class BeritaController extends Controller
             'judul' => 'required|string|max:255',
             'konten' => 'required|string',
             'kategori' => 'required|string|in:kehilangan,ditemukan,prestasi,prestasi sekolah,agenda',
-            'lokasi_terakhir' => 'required_if:kategori,kehilangan|string|max:255',
-            'lokasi' => 'required_if:kategori,ditemukan|string|max:255',
+            'lokasi' => 'nullable|required_if:kategori,ditemukan|string|max:255',
+            'lokasi_terakhir' => 'nullable|required_if:kategori,kehilangan|string|max:255',
+
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:15360',
             'is_published' => 'nullable|boolean'
         ]);
